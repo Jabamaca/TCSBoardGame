@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ffab8023284b3c4183511dd5aeffd1c, type: 3}
+  m_Name: TileColorLibrary
+  m_EditorClassIdentifier: 
+  _colorMatList:
+  - {fileID: 2100000, guid: 8ae7413b3b41cbd41bbdef9529c4869c, type: 2}
+  - {fileID: 2100000, guid: 39b9f7a2bc72dbe42b548d238bd0d52f, type: 2}
+  - {fileID: 2100000, guid: 81a6791758ae673409cb9ba9e21e0c90, type: 2}
+  - {fileID: 2100000, guid: c1d6f54d7e7353b4c83b03dd50d1a508, type: 2}
+  - {fileID: 2100000, guid: 130224e12c612454693ca205e0597909, type: 2}
+  - {fileID: 2100000, guid: 2efd666379e854644a9b0ae5501133ea, type: 2}
+  _colorRefList:
+  - colorMaterial: {fileID: 2100000, guid: 8ae7413b3b41cbd41bbdef9529c4869c, type: 2}
+    baseColor: {r: 0, g: 0, b: 0, a: 0.49803922}
+  - colorMaterial: {fileID: 2100000, guid: 39b9f7a2bc72dbe42b548d238bd0d52f, type: 2}
+    baseColor: {r: 0, g: 0.78431374, b: 0.78431374, a: 1}
+  - colorMaterial: {fileID: 2100000, guid: 81a6791758ae673409cb9ba9e21e0c90, type: 2}
+    baseColor: {r: 0, g: 0, b: 1, a: 1}
+  - colorMaterial: {fileID: 2100000, guid: c1d6f54d7e7353b4c83b03dd50d1a508, type: 2}
+    baseColor: {r: 0, g: 0.7058824, b: 0, a: 1}
+  - colorMaterial: {fileID: 2100000, guid: 130224e12c612454693ca205e0597909, type: 2}
+    baseColor: {r: 1, g: 0, b: 0, a: 1}
+  - colorMaterial: {fileID: 2100000, guid: 2efd666379e854644a9b0ae5501133ea, type: 2}
+    baseColor: {r: 1, g: 0.88235295, b: 0.27450982, a: 1}

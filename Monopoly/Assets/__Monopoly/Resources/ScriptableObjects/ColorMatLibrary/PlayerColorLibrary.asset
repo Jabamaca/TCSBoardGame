@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ffab8023284b3c4183511dd5aeffd1c, type: 3}
+  m_Name: PlayerColorLibrary
+  m_EditorClassIdentifier: 
+  _colorRefList:
+  - colorMaterial: {fileID: 2100000, guid: baaab402aab5cc44a9a00e9c6f3c3614, type: 2}
+    baseColor: {r: 0, g: 0, b: 0, a: 0.49803922}
+  - colorMaterial: {fileID: 2100000, guid: c706cdaf72d463141be52817c94c5276, type: 2}
+    baseColor: {r: 1, g: 0, b: 0, a: 1}
+  - colorMaterial: {fileID: 2100000, guid: 95fb9baa194c2744586a08e95169d6d9, type: 2}
+    baseColor: {r: 0, g: 0.39215687, b: 1, a: 1}
+  - colorMaterial: {fileID: 2100000, guid: 4bbc33296a8d30045b60dbe4901c9d06, type: 2}
+    baseColor: {r: 0, g: 0.6392157, b: 0, a: 1}
+  - colorMaterial: {fileID: 2100000, guid: ae5ef04051b31de409dea06a1500bee3, type: 2}
+    baseColor: {r: 0, g: 0, b: 0, a: 1}
