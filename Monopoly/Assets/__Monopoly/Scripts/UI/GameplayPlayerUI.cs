@@ -128,23 +128,21 @@ namespace Monopoly.UI {
 
         private void AnimateCashGain (int cashDiff) {
             _cashGainLabel.text = CASH_GAIN_FORMAT + cashDiff;
-            _cashGainLabel.gameObject.SetActive (true);
-            _cashGainLabel.transform.localPosition = new Vector3 (0f, 0f, 0f);
-            Tween goUp = _cashGainLabel.transform.DOLocalMoveY (30f, 2f);
-            goUp.SetEase (Ease.Linear);
-            goUp.OnKill (() => {
-                _cashGainLabel.gameObject.SetActive (false);
-            });
+            AnimateLabelUp (_cashGainLabel);
         }
 
         private void AnimateCashLoss (int cashDiff) {
             _cashLossLabel.text = CASH_LOSS_FORMAT + Mathf.Abs (cashDiff);
-            _cashLossLabel.gameObject.SetActive (true);
-            _cashLossLabel.transform.localPosition = new Vector3 (0f, 0f, 0f);
-            Tween goUp = _cashLossLabel.transform.DOLocalMoveY (30f, 2f);
+            AnimateLabelUp (_cashLossLabel);
+        }
+
+        private void AnimateLabelUp (TextMeshProUGUI label) {
+            label.gameObject.SetActive (true);
+            label.transform.localPosition = new Vector3 (0f, 0f, 0f);
+            Tween goUp = label.transform.DOLocalMoveY (30f, 2f);
             goUp.SetEase (Ease.Linear);
             goUp.OnKill (() => {
-                _cashLossLabel.gameObject.SetActive (false);
+                label.gameObject.SetActive (false);
             });
         }
 
