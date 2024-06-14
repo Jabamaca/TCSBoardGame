@@ -1,7 +1,7 @@
 using System;
 
 namespace JabaUtils.Utility.Http {
-    public abstract class HttpProcess {
+    public abstract class HttpRequest {
 
         #region Properties
 

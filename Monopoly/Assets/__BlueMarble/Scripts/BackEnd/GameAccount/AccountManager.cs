@@ -19,7 +19,7 @@ namespace BlueMarble.BackEnd.GameAccount {
         public static void AttemptLogin (string username, string password, Action<string> successAction,
             Action<string> internalErrorAction, Action<Exception> exceptionErrorAction) {
 
-            AccountLoginHttp loginHttp = new (username, password);
+            AccountLoginRequest loginHttp = new (username, password);
             loginHttp.SetSuccessAction ((rds) => {
                 var responseData = JsonUtility.FromJson<AccountLoginResponseData> (rds);
                 _userAccount = new (responseData.data.user);
@@ -29,7 +29,7 @@ namespace BlueMarble.BackEnd.GameAccount {
             loginHttp.SetInternalFailAction (internalErrorAction);
             loginHttp.SetExceptionFailAction (exceptionErrorAction);
 
-            HttpProcessing.ProcessHttp (loginHttp);
+            HttpProcessing.ProcessHttpRequest (loginHttp);
         }
 
         #endregion

@@ -3,7 +3,7 @@ using JabaUtils.Data;
 using System.Collections.Generic;
 
 namespace BlueMarble.BackEnd.GameAccount {
-    public class AccountLoginHttp : HttpProcess {
+    public class AccountLoginRequest : HttpRequest {
 
         #region Properties
 
@@ -21,7 +21,7 @@ namespace BlueMarble.BackEnd.GameAccount {
 
         #region Constructors
 
-        public AccountLoginHttp (string username, string password) {
+        public AccountLoginRequest (string username, string password) {
             _username = username;
             _password = password;
         }

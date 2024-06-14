@@ -13,7 +13,7 @@ namespace JabaUtils.Utility.Http {
 
         #region Methods
 
-        public static async void ProcessHttp (HttpProcess httpProcess) {
+        public static async void ProcessHttpRequest (HttpRequest httpProcess) {
             try {
                 HttpContent content = new StringContent (httpProcess.GetJsonString (), Encoding.UTF8, "application/json");
                 var response = await _sharedClient.PostAsync (httpProcess.RequestURL, content);
