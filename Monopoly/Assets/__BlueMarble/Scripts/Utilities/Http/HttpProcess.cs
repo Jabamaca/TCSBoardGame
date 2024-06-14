@@ -9,13 +9,10 @@ namespace JabaUtils.Utility.Http {
 
         protected Action<string> _successAction;
         public Action<string> SuccessAction => _successAction;
-        protected Action<string> _internalFailAction;
-        public Action<string> InternalFailAction => _internalFailAction;
-        protected Action<Exception> _exceptionFailAction;
-        public Action<Exception> ExceptionFailAction => _exceptionFailAction;
-
-        protected string _jsonString;
-        public string JsonString => _jsonString;
+        protected Action<string> _internalErrorAction;
+        public Action<string> InternalErrorAction => _internalErrorAction;
+        protected Action<Exception> _exceptionErrorAction;
+        public Action<Exception> ExceptionErrorAction => _exceptionErrorAction;
 
         #endregion
 
@@ -26,12 +23,14 @@ namespace JabaUtils.Utility.Http {
         }
 
         public void SetInternalFailAction (Action<string> action) {
-            _internalFailAction = action;
+            _internalErrorAction = action;
         }
 
         public void SetExceptionFailAction (Action<Exception> action) {
-            _exceptionFailAction = action;
+            _exceptionErrorAction = action;
         }
+
+        public abstract string GetJsonString ();
 
         #endregion
 

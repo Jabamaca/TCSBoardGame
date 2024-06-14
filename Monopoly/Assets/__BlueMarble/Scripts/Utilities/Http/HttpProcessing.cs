@@ -15,17 +15,17 @@ namespace JabaUtils.Utility.Http {
 
         public static async void ProcessHttp (HttpProcess httpProcess) {
             try {
-                HttpContent content = new StringContent (httpProcess.JsonString, Encoding.UTF8, "application/json");
+                HttpContent content = new StringContent (httpProcess.GetJsonString (), Encoding.UTF8, "application/json");
                 var response = await _sharedClient.PostAsync (httpProcess.RequestURL, content);
                 string responseData = await response.Content.ReadAsStringAsync ();
 
                 if (response.IsSuccessStatusCode) {
                     httpProcess.SuccessAction?.Invoke (responseData);
                 } else {
-                    httpProcess.InternalFailAction?.Invoke (responseData);
+                    httpProcess.InternalErrorAction?.Invoke (responseData);
                 }
             } catch (Exception e) {
-                httpProcess.ExceptionFailAction?.Invoke (e);
+                httpProcess.ExceptionErrorAction?.Invoke (e);
             }
         }
 
