@@ -18,7 +18,7 @@ namespace BlueMarble.Gameplay.Models {
         // Game State Properties
 
         private Int32 _collectionTotal;
-        public Int32 collectionTotal => _collectionTotal;
+        public Int32 CollectionTotal => _collectionTotal;
 
         #endregion
 

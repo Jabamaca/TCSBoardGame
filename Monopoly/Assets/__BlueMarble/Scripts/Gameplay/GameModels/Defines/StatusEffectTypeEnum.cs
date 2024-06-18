@@ -4,5 +4,6 @@ namespace BlueMarble.Gameplay.Models.Defines {
         RocketBoots     = 0x01,
         ExtraDice       = 0x02,
         CursedDice      = 0x03,
+        AngelShield     = 0x04,
     }
 }
