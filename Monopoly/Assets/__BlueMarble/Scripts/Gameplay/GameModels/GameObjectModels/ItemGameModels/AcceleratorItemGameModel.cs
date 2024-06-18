@@ -17,6 +17,8 @@ namespace BlueMarble.Gameplay.Models {
         #region Constructors
 
         public AcceleratorItemGameModel (AcceleratorItemGameRuleData ruleData) {
+            SetBasicRulePropertiesWithData (ruleData);
+
             _lapCount = ruleData.lapCount;
         }
 

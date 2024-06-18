@@ -17,6 +17,8 @@ namespace BlueMarble.Gameplay.Models {
         #region Constructors
 
         public ExtraDiceItemGameModel (ExtraDiceItemGameRuleData ruleData) {
+            SetBasicRulePropertiesWithData (ruleData);
+
             _extraDiceCount = ruleData.extraDiceCount;
         }
 

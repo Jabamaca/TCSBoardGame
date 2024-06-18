@@ -13,7 +13,7 @@ namespace BlueMarble.Gameplay.Models {
         #region Constructors
 
         public TeleporterItemGameModel (TeleporterItemGameRuleData ruleData) {
-            // No unique properties...
+            SetBasicRulePropertiesWithData (ruleData);
         }
 
         #endregion

@@ -13,7 +13,7 @@ namespace BlueMarble.Gameplay.Models {
         #region Constructors
 
         public AngelShieldItemGameModel (AngelShieldItemGameRuleData ruleData) {
-            // No unique properties...
+            SetBasicRulePropertiesWithData (ruleData);
         }
 
         #endregion

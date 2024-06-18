@@ -17,6 +17,8 @@ namespace BlueMarble.Gameplay.Models {
         #region Constructors
 
         public BagOfWindItemGameModel (BagOfWindItemGameRuleData ruleData) {
+            SetBasicRulePropertiesWithData (ruleData);
+
             _moveRange = ruleData.moveRange;
         }
 

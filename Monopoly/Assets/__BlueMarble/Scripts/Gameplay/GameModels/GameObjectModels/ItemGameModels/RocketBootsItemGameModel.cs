@@ -17,6 +17,8 @@ namespace BlueMarble.Gameplay.Models {
         #region Constructors
 
         public RocketBootsItemGameModel (RocketBootsItemGameRuleData ruleData) {
+            SetBasicRulePropertiesWithData (ruleData);
+
             _rollBoostCount = ruleData.rollBoostCount;
         }
 

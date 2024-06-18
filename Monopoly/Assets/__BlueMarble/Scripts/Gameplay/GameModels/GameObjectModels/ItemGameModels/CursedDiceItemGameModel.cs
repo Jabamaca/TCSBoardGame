@@ -13,7 +13,7 @@ namespace BlueMarble.Gameplay.Models {
         #region Constructors
 
         public CursedDiceItemGameModel (CursedDiceItemGameRuleData ruleData) {
-            // No unique properties...
+            SetBasicRulePropertiesWithData (ruleData);
         }
 
         #endregion
