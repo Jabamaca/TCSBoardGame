@@ -17,6 +17,9 @@ namespace BlueMarble.Gameplay.Models {
         private string _descriptionKey;
         public string DescriptionKey => _descriptionKey;
 
+        private UInt16 _chanceInstance;
+        public UInt16 ChanceInstance => _chanceInstance;
+
         #endregion
 
         #region Constructors
@@ -25,6 +28,7 @@ namespace BlueMarble.Gameplay.Models {
             _itemID = ruleData.itemID;
             _nameKey = ruleData.nameKey;
             _descriptionKey = ruleData.descriptionKey;
+            _chanceInstance = ruleData.chanceInstance;
         }
 
         #endregion

@@ -26,6 +26,9 @@ namespace BlueMarble.Gameplay.Models {
         private Int16 _jailTurns;
         public Int16 JailTurns => _jailTurns;
 
+        private Int16 _doubleRollCount;
+        public Int16 DoubleRollCount => _doubleRollCount;
+
         #endregion
 
         #region Constructors
@@ -36,6 +39,7 @@ namespace BlueMarble.Gameplay.Models {
             _currentPositionTileID = initialPositionTileID;
             _statusEffectID = 0;
             _jailTurns = 0;
+            _doubleRollCount = 0;
         }
 
         public PlayerGameModel (PlayerGameStateData stateData) {
@@ -49,6 +53,7 @@ namespace BlueMarble.Gameplay.Models {
             _ownedItemIDs.AddRange (stateData.ownedItemIDs);
             _statusEffectID = stateData.statusEffectID;
             _jailTurns = stateData.jailTurns;
+            _doubleRollCount = stateData.doubleRollCount;
         }
 
         #endregion

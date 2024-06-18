@@ -12,6 +12,7 @@ namespace BlueMarble.Gameplay.StateData {
         public List<UInt16> ownedItemIDs;
         public UInt16 statusEffectID;
         public Int16 jailTurns;
+        public Int16 doubleRollCount;
 
         #endregion
 

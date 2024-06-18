@@ -12,6 +12,8 @@ namespace BlueMarble.Gameplay.RuleData {
         public string nameKey;
         public string descriptionKey;
 
+        public UInt16 chanceInstance;
+
         #endregion
 
     }

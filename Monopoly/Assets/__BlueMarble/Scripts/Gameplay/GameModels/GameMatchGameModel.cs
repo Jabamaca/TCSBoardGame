@@ -16,6 +16,9 @@ namespace BlueMarble.Gameplay.Models {
         protected readonly List<TileGameModel> _tileModels = new ();
         public IReadOnlyList<TileGameModel> TileModels => _tileModels;
 
+        protected readonly List<ItemGameModel> _itemModelLibrary = new ();
+        public IReadOnlyList<ItemGameModel> ItemModelLibrary => _itemModelLibrary;
+
         #endregion
 
         #region Methods
