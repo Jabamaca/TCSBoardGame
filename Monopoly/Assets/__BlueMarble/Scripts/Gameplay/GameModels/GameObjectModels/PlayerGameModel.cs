@@ -20,8 +20,8 @@ namespace BlueMarble.Gameplay.Models {
         private readonly List<UInt16> _ownedItemIDs = new ();
         public IReadOnlyList<UInt16> OwnedItemIDs => _ownedItemIDs;
 
-        private UInt16 _statusEffectID;
-        public UInt16 StatusEffectID => _statusEffectID;
+        private readonly List<StatusEffectGameModel> _statusEffects = new ();
+        public IReadOnlyList<StatusEffectGameModel> StatusEffects => _statusEffects;
 
         private Int16 _jailTurns;
         public Int16 JailTurns => _jailTurns;
@@ -37,7 +37,6 @@ namespace BlueMarble.Gameplay.Models {
             _playerID = playerID;
             _cashAmount = cashAmount;
             _currentPositionTileID = initialPositionTileID;
-            _statusEffectID = 0;
             _jailTurns = 0;
             _doubleRollCount = 0;
         }
@@ -50,10 +49,16 @@ namespace BlueMarble.Gameplay.Models {
             _playerID = stateData.playerID;
             _cashAmount = stateData.cashAmount;
             _currentPositionTileID = stateData.currentPositionTileID;
-            _ownedItemIDs.AddRange (stateData.ownedItemIDs);
-            _statusEffectID = stateData.statusEffectID;
+            _ownedItemIDs.AddRange (stateData.ownedItemIDList);
+            SetStatusEffectsFromStateDataList (stateData.statusEffectGameStateDataList);
             _jailTurns = stateData.jailTurns;
             _doubleRollCount = stateData.doubleRollCount;
+        }
+
+        private void SetStatusEffectsFromStateDataList (IEnumerable<StatusEffectGameStateData> stateDataList) {
+            foreach (var stateData in stateDataList) {
+                _statusEffects.Add (StatusEffectGameModelFactory.MakeStatusEffectWithStateData (stateData));
+            }
         }
 
         #endregion
@@ -85,22 +90,33 @@ namespace BlueMarble.Gameplay.Models {
             return true;
         }
 
-        public bool ApplyStatusEffectID (UInt16 statusEffectID) {
-            if (_statusEffectID == statusEffectID) {
-                return false;
+        public bool ApplyStatusEffect (StatusEffectGameModel statusEffect) {
+            foreach (var se in _statusEffects) {
+                if (se.SourceItemID == statusEffect.SourceItemID) {
+                    // Item effect already applied.
+                    return false;
+                }
             }
 
-            _statusEffectID = statusEffectID;
+            _statusEffects.Add (statusEffect);
             return true;
         }
 
-        public bool RemoveStatusEffectID (UInt16 statusEffectID) {
-            if (_statusEffectID != statusEffectID) {
-                return false;
+        public bool RemoveStatusEffectOfItemID (UInt16 sourceItemID) {
+            StatusEffectGameModel statusEffectToRemove = null;
+            foreach (var se in _statusEffects) {
+                if (sourceItemID == se.SourceItemID) {
+                    statusEffectToRemove = se;
+                    break;
+                }
             }
 
-            _statusEffectID = 0;
-            return true;
+            if (statusEffectToRemove != null) {
+                _statusEffects.Remove (statusEffectToRemove);
+                return true;
+            }
+
+            return false;
         }
 
         public void GoToJail (Int16 jailTurns) {
@@ -113,6 +129,14 @@ namespace BlueMarble.Gameplay.Models {
 
         public void LeaveJail () {
             _jailTurns = 0;
+        }
+
+        public void GetDoubleRoll () {
+            _doubleRollCount++;
+        }
+
+        public void ResetDoubleRoll () {
+            _doubleRollCount = 0;
         }
 
         public void UpdateWithStateData (PlayerGameStateData stateData) {

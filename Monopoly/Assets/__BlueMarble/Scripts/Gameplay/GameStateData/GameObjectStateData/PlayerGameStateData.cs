@@ -9,7 +9,7 @@ namespace BlueMarble.Gameplay.StateData {
         public UInt32 playerID;
         public Int32 cashAmount;
         public UInt16 currentPositionTileID;
-        public List<UInt16> ownedItemIDs;
+        public List<UInt16> ownedItemIDList;
         public List<StatusEffectGameStateData> statusEffectGameStateDataList;
         public Int16 jailTurns;
         public Int16 doubleRollCount;

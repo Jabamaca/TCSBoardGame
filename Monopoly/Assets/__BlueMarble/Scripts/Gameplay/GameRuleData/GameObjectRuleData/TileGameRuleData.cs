@@ -9,6 +9,7 @@ namespace BlueMarble.Gameplay.RuleData {
         public virtual TileTypeEnum TileType => TileTypeEnum.None;
 
         public UInt16 tileID;
+
         public string nameKey;
         public UInt16 previousTileID;
         public UInt16 nextTileID;

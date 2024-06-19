@@ -1,5 +1,6 @@
 using BlueMarble.Gameplay.Models.Defines;
 using BlueMarble.Gameplay.RuleData;
+using BlueMarble.Gameplay.StateData;
 using System;
 
 namespace BlueMarble.Gameplay.Models {
@@ -34,6 +35,10 @@ namespace BlueMarble.Gameplay.Models {
         #endregion
 
         #region Methods
+
+        public virtual void UpdateWithStateData (TileGameStateData stateData) {
+            // No common data.
+        }
 
         #endregion
 

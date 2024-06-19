@@ -14,7 +14,6 @@ namespace BlueMarble.Gameplay.Models {
 
         private PropertyColorEnum _propertyColor;
         public PropertyColorEnum PropertyColor => _propertyColor;
-
         private Int32 _hotelBuildCost;
         public Int32 HotelBuildCost => _hotelBuildCost;
         private Int32 _landmarkBuildCost;
@@ -37,34 +36,28 @@ namespace BlueMarble.Gameplay.Models {
         #region Constructors
 
         public PropertyTileGameModel (PropertyTileGameRuleData ruleData) {
-            SetRulePropertiesWithData (ruleData);
-            SetStatePropertiesDefault ();
-        }
-
-        public PropertyTileGameModel (PropertyTileGameRuleData ruleData, PropertyTileGameStateData stateData) {
-            SetRulePropertiesWithData (ruleData);
-            SetStatePropertiesWithData (stateData);
-        }
-
-        private void SetRulePropertiesWithData (PropertyTileGameRuleData ruleData) {
             SetBasicRulePropertiesWithData (ruleData);
 
             _propertyColor = ruleData.propertyColor;
-
             _hotelBuildCost = ruleData.hotelBuildCost;
             _landmarkBuildCost = ruleData.landmarkBuildCost;
             _hotelTollFee = ruleData.hotelTollFee;
             _landmarkTollFee = ruleData.landmarkTollFee;
-        }
 
-        private void SetStatePropertiesWithData (PropertyTileGameStateData stateData) {
-            _ownerPlayerID = stateData.ownerPlayerID;
-            _propertyUpgradeLevel = stateData.propertyUpgradeLevel;
-        }
-
-        private void SetStatePropertiesDefault () {
             _ownerPlayerID = 0;
             _propertyUpgradeLevel = PropertyUpgradeLevelEnum.None;
+        }
+
+        #endregion
+
+        #region Overrides
+
+        public override void UpdateWithStateData (TileGameStateData stateData) {
+            base.UpdateWithStateData (stateData);
+
+            var propertyTileStateData = stateData as PropertyTileGameStateData;
+            _ownerPlayerID = propertyTileStateData.ownerPlayerID;
+            _propertyUpgradeLevel = propertyTileStateData.propertyUpgradeLevel;
         }
 
         #endregion
@@ -82,10 +75,6 @@ namespace BlueMarble.Gameplay.Models {
                 return;
 
             _propertyUpgradeLevel++;
-        }
-
-        public void UpdateWithStateData (PropertyTileGameStateData stateData) {
-            SetStatePropertiesWithData (stateData);
         }
 
         #endregion
